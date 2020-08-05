@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<data>
+    <nombre>Ishef</nombre>
+    <apellido>Glatzel</apellido>
+    <dni>36238800</dni>
+    <prendas>
+        <prenda1 name="zapatilla">
+            <cantidad>3</cantidad>
+        </prenda1>
+        <prenda2 name="buzo">
+            <cantidad>2</cantidad>
+        </prenda2>
+    </prendas>
+</data>

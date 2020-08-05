@@ -15,6 +15,12 @@ __author__ = "Inove Coding School"
 __email__ = "alumnos@inove.com.ar"
 __version__ = "1.1"
 
+import json
+import requests
+import xml.etree.ElementTree as ET
+
+import matplotlib.pyplot as plt
+import matplotlib.axes
 
 def ej1():
     # JSON Serialize
@@ -36,7 +42,21 @@ def ej1():
     # un archivo que usted defina
 
     # Observe el archivo y verifique que se almaceno lo deseado
-    pass
+    
+    ishef_json = {
+              "nombre": "Ishef",
+              "apellido": "Glatzel",
+              "dni": "36238800",
+              "prendas": [
+                  {"prenda": "zapatilla", "cantidad": 3},
+                  {"prenda": "buzo", "cantidad": 2}
+              ]
+
+             }
+             
+    with open('ejercicios.json', 'w') as jsonfile:
+        data = [ishef_json]
+        json.dump(data, jsonfile, indent=4)
 
 
 def ej2():
@@ -49,7 +69,10 @@ def ej2():
     # el método "dumps" y finalmente imprimir en pantalla el resultado
     # Recuerde utilizar indent=4 para poder observar mejor el resultado
     # en pantalla y comparelo contra el JSON que generó en el ej1
-    pass
+    with open('ejercicios.json', 'r') as jsonfile:
+        current_data = json.load(jsonfile)
+        json_string = json.dumps(current_data, indent=4)
+        print(json_string)
 
 
 def ej3():
@@ -72,7 +95,12 @@ def ej4():
     # Python lanza algún error, es porque hay problemas en el archivo.
     # Preseten atención al número de fila y al mensaje de error
     # para entender que puede estar mal en el archivo.
-    pass
+    tree = ET.parse('ejercicios.xml')
+    root = tree.getroot()
+    for child in root:
+        print('tag:', child.tag, 'attr:', child.attrib, 'text:', child.text)
+        for child2 in child:
+            print('tag:', child2.tag, 'attr:', child2.attrib, 'text:', child2.text)
 
 
 def ej5():
@@ -101,12 +129,31 @@ def ej5():
     # para imprimir cuantos títulos completó cada usuario
     # y verifique si los primeros usuarios (mirando la página a ojo)
     # los datos recolectados son correctos.
+    response = requests.get(url)
+    dataset = response.json()
+    usuarios = []
+    entradas = []
 
+    for diccionario in dataset:
+        if diccionario['userId'] not in usuarios:
+            usuarios.append(diccionario['userId'])
+            entradas.append(0) 
+        if diccionario['completed']: entradas[usuarios.index(diccionario['userId'])] += 1
 
+    fig = plt.figure()
+    fig.suptitle('Formularios completados x Usuario', fontsize=16)
+    ax = fig.add_subplot()
+
+    ax.pie(entradas, labels=usuarios,
+           autopct='%1.0f%%', shadow=True, startangle=90
+           )
+    ax.axis('equal')
+    plt.show()
+    
 
 if __name__ == '__main__':
     print("Bienvenidos a otra clase de Inove con Python")
-    ej1()
+    # ej1()
     # ej2()
     # ej3()
     # ej4()

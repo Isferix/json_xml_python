@@ -7,7 +7,7 @@ A esta altura del curso el alumno posee ya una serie de habilidades muy vinculad
 EL propósito de este ejercicio es que el alumno ponga a prueba estas facultades ya que este momento del curso es un momento bisagra, lo próximo que se verá de aquí en más son herramientas o procesos para mejorar estos 3 pilares (bases de datos, exponer una API, generar reportes web).
 
 # HackerRank [Python]
-Esta página posee ejercicios para poner a prueba a los programadores, muy utilizada en el ámbito profesional para evaluar posibles candidatos. En esta oportunidad hemos agarrado un ejercicio interesante de esta plataforma y almodado un poco para utilizar como ejercicio en esta oportunidad.
+Esta página posee ejercicios para poner a prueba a los programadores, muy utilizada en el ámbito profesional para evaluar posibles candidatos. En esta oportunidad hemos agarrado un ejercicio interesante de esta plataforma y amoldado un poco para utilizar como ejercicio en esta oportunidad.
 
 # Enunciado
 El objetivo es consumir los datos que provee la siguiente URL:\

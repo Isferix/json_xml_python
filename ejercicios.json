@@ -1,0 +1,17 @@
+[
+    {
+        "nombre": "Ishef",
+        "apellido": "Glatzel",
+        "dni": "36238800",
+        "prendas": [
+            {
+                "prenda": "zapatilla",
+                "cantidad": 4
+            },
+            {
+                "prenda": "buzo",
+                "cantidad": 2
+            }
+        ]
+    }
+]
