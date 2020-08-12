@@ -43,9 +43,12 @@ def transform(dataset, minimo, maximo):
     return: Retorna una lista de enteros con el formato:
         [len(lista_min), len(lista_min_max), len(lista_max)]
     '''
-    lista_min = [data for data in dataset if data["price"] < minimo]
-    lista_min_max = [data for data in dataset if minimo < data["price"] < maximo]
-    lista_max = [data for data in dataset if data["price"] < maximo]
+    lista_min = [data['price'] for data in dataset if data["price"] < minimo]
+    lista_min_max = [data['price'] for data in dataset if minimo <= data["price"] <= maximo]
+    lista_max = [data['price'] for data in dataset if data["price"] > maximo]
+    # Todas las listas guardan los valores de los precios para que en caso de debug sea facil detectar errores
+    # el programa funciona correctamente si en vez de data['price'] se reemplaza por la expresion data
+
     return [len(lista_min), len(lista_min_max), len(lista_max)]
 
 
